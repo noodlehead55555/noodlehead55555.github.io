@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css" />
+    <link
+      rel="icon"
+      href="https://cdn-icons-png.flaticon.com/512/6463/6463383.png"
+    />
+    <title>Log in</title>
+  </head>
+
+  <body>
+    <h1>Log in</h1>
+    <p id="help">
+      Input name and password to sign in. Put the first letter of your first name, and  your last name. (All lowercase.) Let's say John Doe's password
+      is "password". He would type "jdoe", and "password". If you don't have an account, just press submit.
+    </p>
+    
+    <p id="nameP"><input type="username" placeholder="Name" id="name"></p>
+    <p id="passP"><input type="password" placeholder="Password" id="password" /><input type="checkbox" onclick="hidePassword()" id="check">Show Password</p>
+    <p id="submitP">
+      <button onclick="login()" id="submit">Submit</button>
+    </p>
+    <p id="passwordHelp">If you haven't changed your password with me, it's literally nothing. Just press submit.</p>
+    <p id="Cipher/Decipher"><a href="/src/subhtmlFiles/cipherDecipher.html" title="Secret cipher that only people with access can use."></a></p>
+    <p id="Small fun things"><a href="/src/subhtmlFiles/funSmallThings.html" title="Small things that are too small to go on the main page."></a></p>
+    <p id="Math thing"><a href="/src/subhtmlFiles/math.html" title="Useful math functions."></a></p>
+    <p id="Character repeater"><a href="/src/subhtmlFiles/repeater.html" title="Repeat characters for fun."></a></p>
+    <p id="Scratch"><a href="https://scratch.mit.edu/users/hi_mans/" title="This is my scratch account. You can play the games."></a></p>
+    <script src="/src/loggingIn.js"></script>
+  </body>
+</html>
