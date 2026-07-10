@@ -13,7 +13,10 @@
         <h1>don't worry i'll make it better</h1>
         <input type="file" id="input" name="input" accept=".yaml,.YAML">
         <input type="button" id="download" name="download" value="Download" onclick="downloadClick()">
-        <div id="output" name="output" contenteditable="true">no file selected</div>
+        <div id="editor">
+          <pre id="output" name="output" contenteditable="true"></pre>
+          <div id="fakeOutput" name="fakeOutput"></div>
+        </div>
     </main>
     <script src="index.js"></script>
   </body>

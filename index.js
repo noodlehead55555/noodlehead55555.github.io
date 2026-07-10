@@ -1,11 +1,12 @@
 const input = document.querySelector("input")
 const output = document.getElementById("output")
+const fakeOutput = document.getElementById("fakeOutput")
 var file = null
 
 
 input.addEventListener("change", handleFileInput)
 
-//Thanks to Łukasz Holeczek for this code
+//Thanks to Łukasz Holeczek for this function
 function downloadFile(data, filename, type = 'text/plain') {
     const blob = new Blob([data], { type })
     const url = URL.createObjectURL(blob)
@@ -20,29 +21,37 @@ function downloadFile(data, filename, type = 'text/plain') {
     URL.revokeObjectURL(url)
 }
 
+//Handle clicking download
 function downloadClick() {
     if (!file) {
         return;
     }
-    console.log("yes file")
     downloadFile(output.textContent, file.name)
 }
 
 function handleFileInput() {
     file = event.target.files[0]
-    output.textContent = ""
+    output.innerText = ""
 
     if (!file) {
-        output.textContent = "still no file selected";
+        alert("No file selected.")
         return;
+    }
+    if (!/\.(yaml|yml)$/i.test(file.name)) {//If file doesn't end in .yaml or .yml
+        alert("Please insert a valid YAML")
     }
     const reader = new FileReader()
     reader.onload = () => {
-        output.textContent = reader.result
+        output.innerText = reader.result
+        fakeOutput.innerText = output.innerText
     }
     reader.onerror = () => {
-        output.textContent = "there was an error"
+        console.log("there was some error i guess")
     }
     reader.readAsText(file)
-    console.log(file)
 }
+
+output.addEventListener("input",  (event) => {
+    fakeOutput.innerText = output.innerText
+})
+//below is exclusively for testing

@@ -1,3 +1,31 @@
-div {
+
+#editor {   
+    display: grid;
+    min-height: 100px;
+    height: max-content;
+    position: relative;
     white-space: pre-wrap;
+    font-family: monospace;
+}
+
+#output,
+#fakeOutput {
+    inset: 0;
+    grid-area: 1/1;
+    min-height: 100px;
+    height: max-content;
+    padding-bottom: 5px;
+}
+
+#output {
+    margin: 0;
+    color: transparent;
+    background: transparent;
+    caret-color: black;
+}
+
+#fakeOutput {
+    color: black;
+    pointer-events: none;
+    outline: 1px solid black;
 }
