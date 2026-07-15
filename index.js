@@ -1,15 +1,7 @@
-/*
-To Do:
-- FIX THE DOWNLOAD
-- add file name changing
-- more colors
-- Add option to use preset YAML from another folder without needing to upload a file
-*/
-
-
 const input = document.querySelector("input")
 const output = document.getElementById("output")
 const fakeOutput = document.getElementById("fakeOutput")
+const nameInput = document.getElementById("fileName")
 var file = null
 
 
@@ -35,7 +27,7 @@ function downloadClick() {
     if (!file) {
         return;
     }
-    downloadFile(output.innerText, file.name)
+    downloadFile(output.innerText, nameInput.value + ".yaml")
 }
 
 function handleFileInput() {
@@ -46,16 +38,17 @@ function handleFileInput() {
         alert("No file selected.")
         return;
     }
-    if (!/\.(yaml|yml)$/i.test(file.name)) {//If file doesn't end in .yaml or .yml
-        alert("Please insert a valid YAML")
+    if (!/\.yaml$/i.test(file.name)) {//If file doesn't end in .yaml
+        alert("Please insert a valid YAML. (If the file extension is .yml, change it to .yaml)")
     }
     const reader = new FileReader()
     reader.onload = () => {
         output.innerText = reader.result
+        nameInput.value = file.name.slice(0, file.name.length - 5)//changes nameinput to the file name (minus .yaml)
         updateFakeOutput()
     }
     reader.onerror = () => {
-        console.log("there was some error i guess")
+        alert("there was some error i guess")
     }
     reader.readAsText(file)
 }
@@ -86,7 +79,6 @@ function updateFakeOutput() {
             workHTML += oldHTML[i]
         }
     }
-    console.log(workHTML)
     //newHTML += '<span class="comment">  #this is will show up in only the fakeOutput as GREEN</span>'
     fakeOutput.innerHTML = workHTML
 }
