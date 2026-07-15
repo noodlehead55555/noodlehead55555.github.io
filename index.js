@@ -24,9 +24,6 @@ function downloadFile(data, filename, type = 'text/plain') {
 
 //Handle clicking download
 function downloadClick() {
-    if (!file) {
-        return;
-    }
     downloadFile(output.innerText, nameInput.value + ".yaml")
 }
 
