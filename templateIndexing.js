@@ -13,7 +13,7 @@ const files = fs
   });
 
 // Create JSON output
-const outputPath = path.join(__dirname, "../templates.json");
+const outputPath = path.join(__dirname, "./templates.json");
 
 fs.writeFileSync(
   outputPath,
