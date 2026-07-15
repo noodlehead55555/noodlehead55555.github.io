@@ -28,4 +28,13 @@
     color: black;
     pointer-events: none;
     outline: 1px solid black;
+    .comment {
+        color: darkgreen
+    }
+    .category {
+        color:blue
+    }
+    .options {
+        color:purple
+    }
 }
