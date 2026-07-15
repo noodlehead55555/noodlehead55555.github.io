@@ -1,0 +1,538 @@
+﻿# Q. What is this file?
+# A. This file contains options which allow you to configure your multiworld experience while allowing
+#    others to play how they want as well.
+#
+# Q. How do I use it?
+# A. The options in this file are weighted. This means the higher number you assign to a value, the
+#    more chances you have for that option to be chosen. For example, an option like this:
+#
+#    map_shuffle:
+#      on: 5
+#      off: 15
+#
+#    Means you have 5 chances for map shuffle to occur, and 15 chances for map shuffle to be turned
+#    off.
+#
+# Q. I've never seen a file like this before. What characters am I allowed to use?
+# A. This is a .yaml file. You are allowed to use most characters.
+#    To test if your yaml is valid or not, you can use this website:
+#        http://www.yamllint.com/
+#    You can also verify that your Archipelago options are valid at this site:
+#        https://archipelago.gg/check
+
+# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: Player{number}
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Default DELTARUNE Template
+
+game: DELTARUNE
+requires:
+  version: 0.6.7 # Version of Archipelago required for this yaml to work as expected.
+  game:
+    DELTARUNE: 2.0.4 # Version of the world required for this yaml to work as expected.
+
+DELTARUNE:
+  ################
+  # Game Options #
+  ################
+  progression_balancing:
+    # ATTEMPTS TO BALANCE THE PROGRESSION OF YOUR ITEMS.
+    # 
+    # SETTING THE VALUE LOWER WILL RESULT IN MORE WAITING TO RECIEVE ITEMS.
+    # 
+    # SETTING THE VALUE HIGHER WILL RESULT IN LESS WAITING TO RECIEVE ITEMS.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-99: 0 # random value between 0 and 99
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # SETS THE RULES FOR THE ABILITY TO REACH ALL ITEMS.
+    # 
+    # - **Full** *GUARANTEES THAT ALL ITEMS CAN BE OBTAINED.*
+    # 
+    # - **Minimal** *GUARANTEES ONLY WHAT IS NECESSARY, BUT NO MORE.*
+    full: 50
+    minimal: 0
+
+  item_balancing:
+    # IF AN ITEM IS OBTAINED EARLY, ITS POWER WILL BE SCALED DOWN.
+    # 
+    # *Formula is basically `item_stat * (current_chapter / item_chapter)`, only scaling down*
+    'false': 50
+    'true': 0
+
+  death_link:
+    # YOUR FAILURE CAUSES THE FAILURE OF EVERYONE WHO HAS ENABLED THIS OPTION.
+    # 
+    # TO COMPLIMENT, THE REVERSE IS TRUE AS WELL.
+    'false': 50
+    'true': 0
+
+  better_odds:
+    # SHOULD EVENTS RELIANT ON LUCK HAVE BETTER ODDS TO HAPPEN?
+    # 
+    # - **Chapter 1&2 Eggs**
+    'false': 50
+    'true': 0
+
+  ############
+  # Chapters #
+  ############
+  randomize_chapters:
+    # HOW WILL YOU PROGRESS THROUGH THE CHAPTERS?
+    # 
+    # - **In Order** *The next chapter will be unlocked once you complete the one you're in.*
+    # - **Randomized** *Chapters are unlocked through getting items. You'll be expected to move in-between chapters a lot.*
+    # - **All Unlocked** *All chapters are unlocked from the start. You will be expected to play through another chapter once stuck.*
+    # 
+    # (The goal is closing the final fountain of each chapter whatever the option chosen.)
+    in_order: 0
+    randomized: 0
+    all_unlocked: 50
+
+  starting_chapter:
+    # WHICH CHAPTER WILL BEGIN THE JOURNEY?
+    # 
+    # (This only applies if you set Randomize Chapters to random.)
+    random_chapter: 50
+    chapter_1: 0
+    chapter_2: 0
+    chapter_3: 0
+    chapter_4: 0
+
+  remove_starting_equipment:
+    # SHOULD STARTING FROM A CHAPTER MAKE THE HEROES HAVE NOTHING?
+    # 
+    # *(Normally if you start a save file on a chapter, you'll start with some equipment from the previous two chapters.)*
+    # *(If this option is set to true, you'll start every chapter like chapter 1, with no armors and only the starting weapons.)*
+    # *(However, If you're continuing through to the next chapter using completion data, you'll keep your stuff.)*
+    'false': 0
+    'true': 50
+
+  macguffin_extra:
+    # THE AMOUNT OF EXTRA ITEMS IN THE ITEMPOOL TO UNBLOCK THE ROAD TO FINAL BOSSES.
+    # 
+    # *(So, if you choose to have 3 macguffin items in Chapter 1 and set this option to 1,)*
+    # *(you'll have 4 macguffin items in the pool, but you'll still only need 3 to progress)*
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 5
+    1: 50
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-5: 0 # random value between 0 and 5
+
+  #############
+  # Chapter 1 #
+  #############
+  include_chapter_1:
+    # DO YOU WISH TO PLAY CHAPTER 1?
+    # 
+    # *(Items from this chapter will also be included)*
+    'false': 0
+    'true': 50
+
+  macguffin_chapter_1:
+    # A NEW ROADBLACK WILL APPEAR BEFORE THE FINAL BOSS OF CHAPTER 1.
+    # 
+    # THIS OPTION DETERMINES HOW MANY OF THESE ITEMS WILL BE REQUIRED TO PROGRESS.
+    # 
+    # (King-Shaped Key Pieces)
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
+    0: 50
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-10: 0 # random value between 0 and 10
+
+  chapter_1_recruit:
+    # THE SYSTEM TO RECRUIT ENEMIES WILL BE PRESENT IN THE FIRST CHAPTER.
+    'false': 0
+    'true': 50
+
+  #############
+  # Chapter 2 #
+  #############
+  include_chapter_2:
+    # DO YOU WISH TO PLAY CHAPTER 2?
+    # 
+    # *(Items from this chapter will also be included)*
+    'false': 0
+    'true': 50
+
+  macguffin_chapter_2:
+    # A NEW ROADBLACK WILL APPEAR BEFORE THE FINAL BOSS OF CHAPTER 2.
+    # 
+    # THIS OPTION DETERMINES HOW MANY OF THESE ITEMS WILL BE REQUIRED TO PROGRESS.
+    # 
+    # (KeyGen 2 Segments)
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
+    0: 50
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-10: 0 # random value between 0 and 10
+
+  include_lose_swatchling:
+    # WILL LOSING THE SWATCHLING RECRUIT BE A CHECK LOCATION?
+    # 
+    # *(Since Swatchlings don't normally appear in weird route, enabling this means you have to do Singapore Wrong Warps.)*
+    # *(In All Routes, it requires either reloading your save on a regular route or doing the wrong warp again.)*
+    'false': 50
+    'true': 0
+
+  exclude_post_chapter_2_locations:
+    # WILL LOCATIONS EXCLUSIVE TO THE END OF CHAPTER 2 BE KEPT AWAY FROM HOLDING IMPORTANT ITEMS?
+    # 
+    # - CH2: Castle Town - Tasque Manager Says Challenge
+    # - CH2: Castle Town - Ch2 All Stars Challenge
+    # 
+    # *(Since you "beat" the chapter after sealing the Cyber World fountain,)*
+    # *(enabling this means you can just go to the next chapter afterwards.)*
+    'false': 50
+    'true': 0
+
+  #############
+  # Chapter 3 #
+  #############
+  include_chapter_3:
+    # DO YOU WISH TO PLAY CHAPTER 3?
+    # 
+    # *(Items from this chapter will also be included)*
+    'false': 0
+    'true': 50
+
+  macguffin_chapter_3:
+    # A NEW ROADBLACK WILL APPEAR BEFORE THE FINAL BOSS OF CHAPTER 3.
+    # 
+    # THIS OPTION DETERMINES HOW MANY OF THESE ITEMS WILL BE REQUIRED TO PROGRESS.
+    # 
+    # (Remote Batteries)
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
+    0: 50
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-10: 0 # random value between 0 and 10
+
+  randomize_mantle:
+    # CHECKS RECIEVED IN THE ORIGINAL GAME OF THE THIRD CHAPTER WILL BE RANDOMIZED.
+    # 
+    # - **Mantleless** *Items in the Original Game will be randomized but the Shadow Mantle/ERAM fight isn't mandatory if secret bosses is set to mandatory*
+    'false': 50
+    'true': 0
+    mantleless: 0
+
+  include_shadow_mantle:
+    # THE SHADOW MANTLE WILL BE IN THE RANDOM ITEM POOL OF THE THIRD CHAPTER.
+    # 
+    # - **False** *The Shadow Mantle is the reward for beating the Shadow Mantle/ERAM*
+    # - **True** *The Shadow Mantle will be in the itempool in logic before Knight fight*
+    'false': 0
+    'true': 50
+
+  exclude_t_rank:
+    # THE HIGHEST RANK OF THE THIRD CHAPTER WILL BE EXCLUDED FROM CONTAINING AN IMPORTANT ITEM.
+    'false': 0
+    'true': 50
+
+  exclude_z_rank:
+    # THE LOWEST RANK OF THE THIRD CHAPTER WILL BE EXCLUDED FROM CONTAINING AN IMPORTANT ITEM.
+    'false': 0
+    'true': 50
+
+  #############
+  # Chapter 4 #
+  #############
+  include_chapter_4:
+    # DO YOU WISH TO PLAY CHAPTER 4?
+    # 
+    # *(Items from this chapter will also be included)*
+    'false': 0
+    'true': 50
+
+  macguffin_chapter_4:
+    # A NEW ROADBLACK WILL APPEAR BEFORE THE FINAL BOSS OF CHAPTER 4.
+    # 
+    # THIS OPTION DETERMINES HOW MANY OF THESE ITEMS WILL BE REQUIRED TO PROGRESS.
+    # 
+    # (Combination Lock Digits)
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 10
+    3: 50
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-10: 0 # random value between 0 and 10
+
+  include_mike:
+    # WILL THE DEFEAT OF THE MICROPHONE IMITATORS AS WELL AS THEIR GAMES COUNT AS CHECK LOCATIONS?
+    'false': 50
+    battle_only: 0
+    battle_and_games: 0
+
+  exclude_mike_platinum:
+    # WILL THE PLATINUM TROPHY IN THE MICROPHONE IMITATORS' GAMES BE KEPT AWAY FROM HOLDING AN IMPORTANT ITEM?
+    'false': 50
+    'true': 0
+
+  ###########
+  # Fillers #
+  ###########
+  filler_healing_weight:
+    # DETERMINES HOW OFTEN HEALING ITEMS WILL APPEAR COMPARED TO OTHERS ITEMS.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-99: 0 # random value between 0 and 99
+    common: 50 # equivalent to 50
+    uncommon: 0 # equivalent to 25
+    rare: 0 # equivalent to 10
+    very rare: 0 # equivalent to 5
+    extremely rare: 0 # equivalent to 1
+
+  filler_currency_weight:
+    # DETERMINES HOW OFTEN ALL CURRENCIES WILL APPEAR COMPARED TO OTHERS ITEMS.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-99: 0 # random value between 0 and 99
+    common: 0 # equivalent to 50
+    uncommon: 50 # equivalent to 25
+    rare: 0 # equivalent to 10
+    very rare: 0 # equivalent to 5
+    extremely rare: 0 # equivalent to 1
+
+  trap_weight:
+    # DETERMINES HOW OFTEN TRAPS WILL APPEAR COMPARED TO OTHERS ITEMS.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-99: 0 # random value between 0 and 99
+    common: 0 # equivalent to 50
+    uncommon: 50 # equivalent to 25
+    rare: 0 # equivalent to 10
+    very rare: 0 # equivalent to 5
+    extremely rare: 0 # equivalent to 1
+
+  filler_armor_weight:
+    # DETERMINES HOW OFTEN ARMOR ITEMS WILL APPEAR COMPARED TO OTHERS ITEMS.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-99: 0 # random value between 0 and 99
+    common: 0 # equivalent to 50
+    uncommon: 0 # equivalent to 25
+    rare: 50 # equivalent to 10
+    very rare: 0 # equivalent to 5
+    extremely rare: 0 # equivalent to 1
+
+  filler_tension_weight:
+    # DETERMINES HOW OFTEN TENSION ITEMS WILL APPEAR COMPARED TO OTHERS ITEMS.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-99: 0 # random value between 0 and 99
+    common: 0 # equivalent to 50
+    uncommon: 0 # equivalent to 25
+    rare: 0 # equivalent to 10
+    very rare: 50 # equivalent to 5
+    extremely rare: 0 # equivalent to 1
+
+  filler_smile_weight:
+    # DETERMINES HOW OFTEN IT WILL SMILE.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0 # random value weighted towards lower values
+    random-high: 0 # random value weighted towards higher values
+    random-range-0-99: 0 # random value between 0 and 99
+    common: 0 # equivalent to 50
+    uncommon: 0 # equivalent to 25
+    rare: 0 # equivalent to 10
+    very rare: 0 # equivalent to 5
+    extremely rare: 50 # equivalent to 1
+
+  ########
+  # Goal #
+  ########
+  chosen_route:
+    # CHOOSE THE ROUTE THAT YOU PREFER.
+    # 
+    # - **Neutral Route** *Proceed through the story normally.*
+    # - **Weird Route** *Proceed through the "Weird Route" storyline while losing all possible recruits.*
+    # - **All Recruits** *Progress through the story by recruiting everyone.*
+    # - **All Routes** *Both All Recruits and Weird Route at the same times.*
+    #   *(Doesn't require to finish multiple times chapter, either ending would count as completing a chapter)*
+    # 
+    # (The chosen route only chooses if recruiting or loosing recruits are included or not.)
+    # (This doesn't require you to finish a chapter with a specific route yet, but will in the future.)
+    all_recruits: 50
+    weird_route: 0
+    all_routes: 0
+    neutral_route: 0
+
+  randomize_secret_bosses:
+    # ITEMS GIVEN BY SECRET BOSSES WILL BE RANDOMIZED OR EVEN REQUIRED.
+    # 
+    # - **Mandatory** *Secret Bosses rewards will be randomized and required to do to access the fountain*
+    # 
+    # *Secret bosses are: Jevil, Spamton Neo, Mantle/ERAM, Chapter 3 Knight, Hammer of Justice*
+    'false': 50
+    'true': 0
+    mandatory: 0
+
+  #########
+  # Items #
+  #########
+  include_hidden_items:
+    # RANDOMIZES ITEMS THAT ARE CONSIDERABLY MORE DIFFICULT TO FIND OR TEDIOUS TO OBTAIN.
+    # 
+    # - **Golden Prizes**
+    # - **Eggs**
+    # - **Dog Dollars**
+    # - **Moss**
+    'false': 50
+    'true': 0
+
+  include_secret_bosses_items_requirement:
+    # RANDOMIZES ITEMS THAT ARE NECESSARY TO ACCESS SECRET BOSSES.
+    # 
+    # - **Broken Keys**
+    # - **Door Key**
+    # - **KeyGen**
+    # - **Empty Disk**
+    # 
+    # *(For MANTLE items, see the RandomizeMANTLE option)*
+    'false': 0
+    'true': 50
+
+  include_unused_items:
+    # CERTAIN ITEMS ARE NOT NORMALLY PRESENT.
+    # WILL THEY NOW BE WITH THE REST?
+    # 
+    # - **True without EveryBodyWeapon** *(Include unused items but without EveryBodyWeapon, which is a super powerful unbalanced item probably used by the dev team for debugging.)*
+    'false': 50
+    'true': 0
+    true_without_everybodyweapon: 0
+
+  progressive_kris_weapons:
+    # THE WEAPONS RECEIVED FOR THE CAGE WILL BE IN SEQUENTIAL ORDER OF RISING POWER.
+    'false': 0
+    'true': 50
+
+  progressive_susie_weapons:
+    # THE WEAPONS RECEIVED FOR THE GIRL WILL BE IN SEQUENTIAL ORDER OF RISING POWER.
+    'false': 0
+    'true': 50
+
+  progressive_ralsei_weapons:
+    # THE WEAPONS RECEIVED FOR THE PRINCE WILL BE IN SEQUENTIAL ORDER OF RISING POWER.
+    'false': 0
+    'true': 50
+
+  progressive_noelle_weapons:
+    # THE FORBIDDEN RINGS WILL BE IN SEQUENTIAL ORDER OF RISING POWER.
+    'false': 0
+    'true': 50
+
+  unlock_characters:
+    # THE ABILITY TO USE HEROES IN COMBAT SEQUENCIES WILL NEED TO BE UNLOCKED.
+    # 
+    # *(If someone isn't unlocked, they'll be at -666HP, and you can't use them in battle.)*
+    # *(If nobody is unlocked, then it will immediately be the enemy's turn, but you still get one hit to live.)*
+    'false': 50
+    'true': 0
+    except_kris: 0
+
+  unlock_fun_gang_actions:
+    # THE ABILITY TO USE THE ACTIONS OF THE GIRL, THE PRINCE, AND THE WHITE CLOAK WILL BE AN ITEM.
+    'false': 0
+    'true': 50
+
+  ###########################
+  # Item & Location Options #
+  ###########################
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with the specified amount of these items. Example: "Bomb: 1"
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
+
+  plando_items:
+    # Generic items plando.
+    []
