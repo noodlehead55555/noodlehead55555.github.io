@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Folder to scan
-const directory = path.join(__dirname, "../YAML_Templates");
+const directory = path.join(__dirname, "./YAML_Templates");
 
 // Get all files in the folder
 const files = fs
