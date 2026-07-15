@@ -2,6 +2,6 @@ This is a simple Archipelago YAML editor. All it does is allow editing of the di
 It also currently colors comments green, and it's hopefully going to color the rest of the text too
 
 To Do:
-- more colors
+- color the syntax for everything (comments are done already)
 - Add option to use preset YAML from the website's folder without needing to upload a file
 - Make it not look awful
