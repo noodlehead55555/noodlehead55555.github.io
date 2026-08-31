@@ -3,7 +3,7 @@ name: Generate Template List
 on:
   push:
     paths:
-      - "YAML_Templates/**"
+      - "yamlEditor/YAML_Templates/**"
 
   workflow_dispatch:
 
