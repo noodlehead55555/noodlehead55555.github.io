@@ -22,7 +22,7 @@ jobs:
           node-version: 20
 
       - name: Generate JSON
-        run: node templateIndexing.js
+        run: node yamlEditor/templateIndexing.js
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
