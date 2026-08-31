@@ -20,4 +20,4 @@ fs.writeFileSync(
   JSON.stringify(files, null, 2)
 );
 
-console.log(`Created files.json with ${files.length} files.`);
+console.log(`Created templates.json with ${files.length} files.`);
