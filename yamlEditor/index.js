@@ -1,7 +1,3 @@
-//Notes for me (should be removed before commit)
-//I have the templates being read from the json, and loaded into the select
-//I need to have the select actually work to change the text and stuff
-
 const fileInput = document.getElementById("fileInput")
 const output = document.getElementById("output")
 const fakeOutput = document.getElementById("fakeOutput")
