@@ -12,7 +12,9 @@ var templatesArray = []
 var file = null
 var i
 
-
+console.log("test before")
+fetch("templates.json").then(console.log("fetch works")
+console.log("test after")
 
 fetch("templates.json")//Get list of templates from templates json file
     .then(response => response.json())
