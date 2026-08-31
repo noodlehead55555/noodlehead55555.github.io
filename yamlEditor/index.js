@@ -12,10 +12,6 @@ var templatesArray = []
 var file = null
 var i
 
-console.log("test before")
-fetch("templates.json").then(console.log("fetch works")
-console.log("test after")
-
 fetch("templates.json")//Get list of templates from templates json file
     .then(response => response.json())
     .then(templates => {
@@ -35,8 +31,6 @@ function handleTemplateInput() {
         console.log(templateChoice.value + " is not a valid YAML, cancelling fetch")
         return;
     }
-    console.log(output.innerText)
-    console.log(output.innerText.length)
     if (output.innerText !== "" && output.innerText !== "\n") {
         if (!confirm("Replace current file with new template?")) {
             return;
