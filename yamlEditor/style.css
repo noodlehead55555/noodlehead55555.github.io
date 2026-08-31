@@ -1,3 +1,6 @@
+main {
+    line-height: 2;
+}
 
 #editor {   
     display: grid;
@@ -6,6 +9,7 @@
     position: relative;
     white-space: pre-wrap;
     font-family: monospace;
+    line-height: 1.15;
 }
 
 #output,
