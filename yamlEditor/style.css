@@ -8,12 +8,13 @@ main {
     display: grid;
     justify-items: left;
     grid-template-columns: 1fr 1fr;
-    max-width: 60vw;
+    width: 100%;
+    max-width: 1200px;
     gap: 10px;
 }
 
 h1 {
-    font-family: "Comic Relief";
+    font-family: "Comic Relief" sans-serif;
     justify-self: center;
 }
 #download {
@@ -38,7 +39,7 @@ h1 {
 #fakeOutput {
     inset: 0;
     grid-area: 1/1;
-    min-height: 50vw;
+    min-height: 50vh;
     height: max-content;
     padding: 3px 5px 5px;
     white-space: pre-wrap;
@@ -58,11 +59,5 @@ h1 {
     outline: 1px solid black;
     .comment {
         color: darkgreen
-    }
-    .category {
-        color:blue
-    }
-    .options {
-        color:purple
     }
 }
