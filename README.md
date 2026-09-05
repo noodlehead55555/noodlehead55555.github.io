@@ -5,3 +5,4 @@ It also currently colors comments green, and it's hopefully going to color the r
 
 To Do:
 - Make it not look awful
+- rewrite automated template thing to not be ai because i dont like ai
