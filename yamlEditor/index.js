@@ -106,20 +106,18 @@ function updateFakeOutput() {
     var workHTML = ""
     var newHTML = output.innerHTML
     var status = {//Keep track of what tags we've opened that we have to close
-        comment: false,
-        category: false,
-        options: false
+        comment: false //you can add more here to do more kinds of things.
     }
     var j
     for (j=0;j<oldHTML.length;j++) {
-        if (oldHTML[j] === "#" && !status.comment) {
-            workHTML += '<span class="comment">#'
-            status.comment = true
-        } else if (oldHTML.slice(j, j+4) === "<br>" && status.comment) {
-            workHTML += '</span><'
-            status.comment = false
+        if (oldHTML[j] === "#" && !status.comment) {//if hashtag and we're not already in a comment
+            workHTML += '<span class="comment">#'//add the beginning of a span
+            status.comment = true//and then mark that
+        } else if (oldHTML.slice(j, j+4) === "<br>" && status.comment) {//at a newline, if we're in a comment
+            workHTML += '</span><'//end the span
+            status.comment = false//and mark that
         } else {
-            workHTML += oldHTML[j]
+            workHTML += oldHTML[j]// nothing notable on this character
         }
     }
     //newHTML += '<span class="comment">  #this is will show up in only the fakeOutput as GREEN</span>'

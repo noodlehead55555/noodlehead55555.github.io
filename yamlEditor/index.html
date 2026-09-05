@@ -7,19 +7,21 @@
     <title>yaml editor</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
   </head>
   <body>
     <main>
-        <h1>don't worry i'll make it better</h1>
-        <input id="templateChoice" list="templateList">
-        <datalist id="templateList">
-        </datalist>
-        <br>
-        <input type="file" id="fileInput" name="fileInput" accept=".yaml,.YAML">
-        <input type="button" id="download" name="download" value="Download" onclick="downloadClick()">
-        <br>
-        <input type="text" id="fileName">.yaml
-        <div id="editor">
+        <h1 style="grid-column: 1/3">don't worry i'll make it better</h1>
+        <input id="templateChoice" list="templateList" style="grid-column: 1" placeholder="Search templates">
+        <datalist id="templateList" style="grid-column: 1"></datalist>
+        <input type="file" id="fileInput" name="fileInput" accept=".yaml,.YAML" style="grid-column: 2">
+        <div>
+          <input type="text" id="fileName" style="grid-column: 1" placeholder="Filename">.yaml
+        </div>
+        <input type="button" id="download" name="download" value="Download" onclick="downloadClick()" style="grid-column: 2">
+        <div id="editor" style="grid-column: 1/3">
           <pre id="output" name="output" contenteditable="true"></pre>
           <div id="fakeOutput" name="fakeOutput"></div>
         </div>

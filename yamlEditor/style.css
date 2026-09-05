@@ -1,13 +1,35 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
 main {
     line-height: 2;
+    display: grid;
+    justify-items: left;
+    grid-template-columns: 1fr 1fr;
+    max-width: 60vw;
+    gap: 10px;
+}
+
+h1 {
+    font-family: "Comic Relief";
+    justify-self: center;
+}
+#download {
+    justify-self: center;
+    width: 70%
+}
+#fileInput {
+    justify-self: center
 }
 
 #editor {   
     display: grid;
+    width: 100%;
     min-height: 100px;
     height: max-content;
     position: relative;
-    white-space: pre-wrap;
     font-family: monospace;
     line-height: 1.15;
 }
@@ -16,9 +38,11 @@ main {
 #fakeOutput {
     inset: 0;
     grid-area: 1/1;
-    min-height: 100px;
+    min-height: 50vw;
     height: max-content;
-    padding-bottom: 5px;
+    padding: 3px 5px 5px;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
 }
 
 #output {
