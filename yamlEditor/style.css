@@ -1,6 +1,7 @@
 body {
     display: flex;
     justify-content: center;
+    background-color: light-dark(white, white)/*first one is dark mode*/
 }
 
 main {
@@ -13,8 +14,20 @@ main {
     gap: 10px;
 }
 
+#background {
+    width: 1250px;
+    height: 100%;
+    background-color: lightgray;
+    position: fixed;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
 h1 {
-    font-family: "Comic Relief" sans-serif;
+    font-family: "Comic Sans", "Comic Relief", sans-serif;
     justify-self: center;
 }
 #download {
@@ -49,7 +62,11 @@ h1 {
 #output {
     margin: 0;
     color: transparent;
-    background: transparent;
+    background: rgb(255 255 255 / 60%);
+    /*background: light-dark(
+        rgb(0 0 0 / 60%)
+        rgb(255 255 255 / 60%)
+    );*/
     caret-color: black;
 }
 
