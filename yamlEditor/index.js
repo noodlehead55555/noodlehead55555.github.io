@@ -92,7 +92,7 @@ function downloadFile(data, filename, type = 'text/plain') {
 
 //Handle clicking download
 function downloadClick() {
-    downloadFile(output.innerText, nameInput.value + ".yaml")
+    downloadFile(output.innerText, nameInput.value + ".yaml", "application/octet-stream")
 }
 
 //On updating output, call the function to update fake output
